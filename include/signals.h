@@ -1,11 +1,13 @@
 #ifndef SIGNALS_H
 #define SIGNALS_H
 
-#define SOH 0x01
-#define EOT 0x04
-#define ACK 0x06
-#define NAK 0x15
-#define CAN 0x18
-#define C   0x43
+#include "ByteVector.h"
 
-#endif
+extern const byte SOH;
+extern const byte EOT;
+extern const byte ACK;
+extern const byte NAK;
+extern const byte CAN;
+extern const byte C;
+
+#endif //SIGNALS_H
