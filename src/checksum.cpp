@@ -36,10 +36,12 @@ void printBinary(dword bytes){
 
 //oblicza sumę algebraiczną
 byte algebraicChecksum(const ByteVector& bytes){
-	byte sum = 0;
-	for(byte addend : bytes)
+	int sum = 0;
+	for(byte addend : bytes){
 		sum += addend;
-	return sum;
+		sum %= 256;
+	}
+	return (byte)sum;
 }
 
 //oblicza CRC-16-CCITT (wykorzystywane w XMODEM)
