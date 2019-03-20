@@ -4,6 +4,7 @@ using namespace std;
 
 //stała reprezentująca wielomian dla kodu CRC-16-CCITT
 const dword POLY = 0x011021;
+const byte POLY_LENGTH = 17;
 
 //wypisuje wektor bajtów
 void printBinary(const ByteVector& bytes){
@@ -49,7 +50,7 @@ ByteVector crc16Checksum(const ByteVector& bytes){
     ByteVector a(bytes);
     a.push_back(0); a.push_back(0);
     
-    for(int bitIndex = 0; bitIndex < bytes.size() * 8; bitIndex++){
+    for(int bitIndex = 0; bitIndex < bytes.size() * 8 - POLY_LENGTH; bitIndex++){
         int noOfByte = bitIndex / 8;
         int noOfBit = bitIndex % 8;
         bool bit = (bool)(a[noOfByte] & (1 << (7 - noOfBit)));
